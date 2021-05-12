@@ -16,7 +16,11 @@ const TopoProduto = styled.div`
     justify-content:space-between;
     align-items:center;
 `
-
+const GridDeProdutos = styled.div`
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:8px;
+`
 
 export default class Produto extends React.Component {
 
@@ -33,7 +37,12 @@ export default class Produto extends React.Component {
                      </p>
 
                 </TopoProduto>
-                <ProdutoCard />
+                <GridDeProdutos>
+                    <ProdutoCard />
+                    <ProdutoCard />
+                    <ProdutoCard />
+                    <ProdutoCard />
+                </GridDeProdutos>
             </Produtos>
             //     <div class="tela">
             //     <header>
