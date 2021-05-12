@@ -1,5 +1,8 @@
 import React from 'react';
 import styled from 'styled-components'
+import ItemCarrinho from './ItemCarrinho';
+
+
 const ContainerCarrinho = styled.div`
     display: flex;
     flex-direction:column;
@@ -17,21 +20,21 @@ const CarrinhoProdutos = styled.div`
     // teste para enxergar a posição
     border:2px solid black;
     button{
-        
     }
 `
 
-
 class Carrinho extends React.Component {
+    // pegarValorTotal = () => {
+    //     let ValorTotal = 
+        
+        
+    // }
     render() {
         return (
             <ContainerCarrinho>
                 <h1>Carrinho:</h1>
                 <CarrinhoProdutos>
-                    <p>1x Produto BLBALABAL</p>
-                    <button>Remover</button>
-                    <p>1x Produto BLBALABAL</p>
-                    <button>Remover</button>
+                    <ItemCarrinho />
                     <p>Valor Total: R$</p>
                 </CarrinhoProdutos>
             </ContainerCarrinho>
