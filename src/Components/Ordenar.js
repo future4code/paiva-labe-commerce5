@@ -1,16 +1,10 @@
 import React from 'react';
-<<<<<<< HEAD
 import './App.css';
-=======
-import Filtro from './components/Filtro';
-import styled from 'styled-components'
->>>>>>> master
 
 export default class Home extends React.Component {
 
 render(){   
   return (
-<<<<<<< HEAD
     <div class="tela">
     <header>
         <h1>Espaço Animado</h1>
@@ -62,11 +56,6 @@ render(){
         <h4>Redes Sociais</h4>
     </footer>
 </div>
-=======
-    <Filtro>
-      
-    </Filtro>
->>>>>>> master
   );
  }
 }
