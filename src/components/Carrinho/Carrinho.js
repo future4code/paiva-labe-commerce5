@@ -8,7 +8,7 @@ const ContainerCarrinho = styled.div`
     display: flex;
     flex-direction:column;
     height:100vh;
-    width:20%;
+    width:100%;
     border-left:2px solid black;
     border-top:2px solid black;
     h1{
@@ -33,6 +33,7 @@ class Carrinho extends React.Component {
             <ContainerCarrinho>
                 <h1>🛒 Carrinho:</h1>
                 <CarrinhoProdutos>
+                    <ItemCarrinho />
                     <ItemCarrinho />
                     <p>Valor Total: R$</p>
                 </CarrinhoProdutos>
