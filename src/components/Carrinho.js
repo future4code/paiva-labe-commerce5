@@ -15,7 +15,7 @@ const CarrinhoProdutos = styled.div`
     justify-content:center;
     padding:4px;
     // teste para enxergar a posição
-    border:2px solid black;
+    // border:2px solid black;
     button{
         
     }
