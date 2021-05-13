@@ -1,10 +1,15 @@
 import React from 'react';
-import {Produtos} from './components/Produtos'
+import Produtos from './components/Produtos';
 import Filtro from './components/Filtro';
-import styled from 'styled-components'
+import styled from 'styled-components';
+import Tela from './components/Produtos';
+import Cabeçalho from './components/Produtos';
+import ContainerProduto from './components/Produtos';
+import Cards from './components/Produtos';
+import Rodape from './components/Produtos';
 
 
-export default class Home extends React.Component {
+export default class App extends React.Component {
 
  render(){   
     return (

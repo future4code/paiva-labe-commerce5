@@ -1,31 +1,31 @@
 import React from 'react';
 import styled from 'styled-components';
 
-  const Tela = styled.div`
+export const Tela=styled.div`
       height: 100vh;
       display: flex;
       flex-direction: column;
-  `
-  const Cabeçalho = styled.header`
+      `
+export const Cabeçalho=styled.header`
       background-color: rgb(28, 23, 95);
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 0 50px;
       height: 10%;
-  `
-  const ContainerProduto = styled.main`
+      `
+export const ContainerProduto=styled.main`
       min-height: 80%;
       display: flex;
-  `    
-  const Cards = styled.section`
+      `    
+export const Cards=styled.section`
       display: grid;
       grid-template-columns: repeat(4, 24.8% 0.2%);
       grid-template-rows: repeat(4, 270px 20px);
       grid-row-gap: 5px;
       grid-column-gap: 5px;
-  `    
-  const CardProduto = styled.div`
+      `    
+export const CardProduto=styled.div`
       display: grid;
       grid-template-rows: 3fr 1fr;
       grid-template-columns: 1fr;
@@ -37,8 +37,8 @@ import styled from 'styled-components';
           width: 100%;
           height: 200px;
       }
-  `    
-  const Rodape = styled.footer`
+      `    
+export const Rodape=styled.footer`
       background-color: rgb(28, 23, 95);
       color: white;
       position: fixed;
@@ -46,15 +46,20 @@ import styled from 'styled-components';
       width: 100%;
       display: flex;
       padding: 0 10px;
-  `  
+      `  
 
-export function Produtos (props) {
+export default class Produtos extends React.Component{
+    state = {
+
+    }
+  render(){  
     return (
         <CardProduto>
-            <img src={props.imagem}/>
-            <h5>{props.nomeProduto}</h5>
-            <h4>{props.preco}</h4>
-            <button onClick={() => props.funcaoClick(props.imagem)}>Adicionar ao carrinho</button>
+            <img src={this.props.imagem}/>
+            <h5>{this.props.nomeProduto}</h5>
+            <h4>{this.props.preco}</h4>
+            <button onClick={() => this.props.funcaoClick(this.props.imagem)}>Adicionar ao carrinho</button>
         </CardProduto>
     );
+  }  
 }
