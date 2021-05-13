@@ -18,8 +18,6 @@ const ContainerCarrinho = styled.div`
 const CarrinhoProdutos = styled.div`
     display:grid;
     padding:8px;
-    // teste para enxergar a posição
-
 `
 
 class Carrinho extends React.Component {
