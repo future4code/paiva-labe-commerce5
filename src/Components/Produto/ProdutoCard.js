@@ -1,5 +1,4 @@
 import React from 'react';
-// import './App.css';
 import styled from 'styled-components'
 
 const CardDeProduto = styled.div`
@@ -24,15 +23,18 @@ const CardInfo = styled.div`
 export default class ProdutoCard extends React.Component {
 
     render() {
-        return (
-            <CardDeProduto>
-                <img src="https://www.bigjigstoys.co.uk/media/catalog/product/cache/b602cca0b1c302411eaf5cc7f6f3f5d1/b/j/bj815_pat7jddwnzb3wi35.jpg"/>
-                <CardInfo>
-                <p><strong>Foguete Maneiro</strong></p>
-                <p>R$ 1230,00</p>
-                <button>Adicionar ao Carrinho</button>
+        return(
+        this.props.products.map((product)=>{
+        console.log(product)
+        return <CardDeProduto>
+            <img src={product.imagem} />
+                <CardInfo key={product.id}>
+                    <p>{product.nome}</p>
+                    <p>R$ {product.preço},00</p>
+                    <button>Adicionar ao Carrinho</button>
                 </CardInfo>
             </CardDeProduto>
+            })
         )
     }
 }

@@ -1,6 +1,5 @@
 import React from 'react';
 import ProdutoCard from './ProdutoCard';
-// import './App.css';
 import styled from 'styled-components'
 
 const Produtos = styled.div`
@@ -23,76 +22,44 @@ const GridDeProdutos = styled.div`
 `
 
 export default class Produto extends React.Component {
+    state = {
+        ordena: 'DECRESCENTE'
+    }
+    getListaOrdenada = () => {
+        return this.props.products.sort((a, b) => this.state.ordena === 'CRESCENTE' ? a.preço - b.preço : b.preço - a.preço)
+    }
 
+    onMudaLista = (event) => {
+        this.setState({ ordena: event.target.value })
+        console.log(this.onMudaLista)
+    }
     render() {
-        return (
-            <Produtos>
-                <TopoProduto>
-                    <p>Quantidade de Produtos: 12</p>
-                    <p>Ordenação:
-             <select>
-                            <option>Crescente</option>
-                            <option>Decrescente</option>
-                        </select>
-                     </p>
+        const listaOrdenada = this.getListaOrdenada()
 
-                </TopoProduto>
-                <GridDeProdutos>
-                    <ProdutoCard />
-                    <ProdutoCard />
-                    <ProdutoCard />
-                    <ProdutoCard />
-                </GridDeProdutos>
-            </Produtos>
-            //     <div class="tela">
-            //     <header>
-            //         <h1>Espaço Animado</h1>
-            //         <input type="text" placeholder="O que você procura?" id="campoBusca" />
-            //     </header>
+        const products = this.props.products
 
-            //     <main>
-            //         <div>
+        // console.log(products)
+        return <Produtos>
+            <TopoProduto>
+                <p>Quantidade de Produtos:{this.props.products.length}</p>
+                <p>Ordenação:
+                    <select value={this.state.ordena} onChange={this.onMudaLista} >
+                        <option value={'CRESCENTE'}>Crescente</option>
+                        <option value={'DECRESCENTE'}>Decrescente</option>
+                    </select>
+                </p>
 
-            //         </div>
+            </TopoProduto>
+            <GridDeProdutos>
+                <ProdutoCard
+                    products={products}
+                />
 
-            //         <section class="cards">
-            //             <div class="produto card1" onclick="">
-            //                 <img src="https://picsum.photos/400/400?a=1 " alt="" />
-            //                 <h4>Nome do produto</h4>
-            //             </div>
-            //             <div class="produto card2" onclick="">
-            //                 <img src="https://picsum.photos/400/400?a=2 " alt="" />
-            //                 <h4>Nome do produto</h4>
-            //             </div>
-            //             <div class="produto card3" onclick="">
-            //                 <img src="https://picsum.photos/400/400?a=3 " alt="" />
-            //                 <h4>Nome do produto</h4>
-            //             </div>
-            //             <div class="produto card4" onclick="">
-            //                 <img src="https://picsum.photos/400/400?a=4 " alt="" />
-            //                 <h4>Nome do produto</h4>
-            //             </div>
-            //             <div class="produto card5" onclick="">
-            //                 <img src="https://picsum.photos/400/400?a=5 " alt="" />
-            //                 <h4>Nome do produto</h4>
-            //             </div>
-            //             <div class="produto card6" onclick="">
-            //                 <img src="https://picsum.photos/400/400?a=6 " alt="" />
-            //                 <h4>Nome do produto</h4>
-            //             </div>
-            //             <div class="produto card7" onclick="">
-            //                 <img src="https://picsum.photos/400/400?a=7 " alt="" />
-            //                 <h4>Nome do produto</h4>
-            //             </div>
-            //             <div class="produto card8" onclick="">
-            //                 <img src="https://picsum.photos/400/400?a=8 " alt="" />
-            //                 <h4>Nome do produto</h4>
-            //             </div>
-            //         </section>
-            //     </main>
 
-            // </div>
-        );
+
+            </GridDeProdutos>
+        </Produtos>
+            ;
     }
 }
 
