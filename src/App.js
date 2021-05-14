@@ -1,7 +1,7 @@
 import React from 'react';
-import Filtro from './components/Filtro/Filtro';
-import Carrinho from './components/Carrinho/Carrinho';
-import Produto from './components/Produto/Produto';
+import Filtro from './Components/Filtro/Filtro';
+import Carrinho from './Components/Carrinho/Carrinho';
+import Produto from './Components/Produto/Produto';
 import styled from 'styled-components'
 
 const AppContainer = styled.div`
@@ -18,6 +18,7 @@ const Header = styled.div`
   width:100vw;
   background-color:red;
   grid-row:1/3;
+  background-image:"https://img.ibxk.com.br/2019/06/20/20210037158108.jpg?w=1120&h=420&mode=crop&scale=both";
 `
 
 const products = [
@@ -82,7 +83,7 @@ render(){
   return (
     <AppContainer>
       {/* <Header /> */}
-      <Filtro />
+      <Filtro lista={products} min={this.state.valorMin} max={this.state.valorMax}/>
       <Produto 
       products= {products}/>
       <Carrinho />
@@ -92,5 +93,6 @@ render(){
   );
  }
 }
+
 
 
