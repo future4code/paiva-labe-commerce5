@@ -23,18 +23,15 @@ const CardInfo = styled.div`
 export default class ProdutoCard extends React.Component {
 
     render() {
-        return(
-        this.props.products.map((product)=>{
-        console.log(product)
-        return <CardDeProduto>
+        const product = this.props.products
+        return<CardDeProduto>
             <img src={product.imagem} />
-                <CardInfo key={product.id}>
+                <CardInfo>
                     <p>{product.nome}</p>
                     <p>R$ {product.preço},00</p>
-                    <button>Adicionar ao Carrinho</button>
+                    <button onClick={()=>this.props.onAdicionarCarrinho(product.id)}>Adicionar ao Carrinho</button>
                 </CardInfo>
             </CardDeProduto>
-            })
-        )
+       
     }
 }

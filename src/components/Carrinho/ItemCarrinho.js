@@ -12,9 +12,9 @@ class ItemCarrinho extends React.Component {
     render() {
         return (
             <ContainerDoItem>
-                <p>1x</p>
-                <p>Produto</p>
-                <button onClick={""}>Remover</button>
+                <p>{this.props.produtos.quantidade}x</p>
+                <p>{this.props.produtos.nome}</p>
+                <button onClick={()=> this.props.onRemoverCarrinho(this.props.produtos.id)}>Remover</button>
             </ContainerDoItem>
         )
     }

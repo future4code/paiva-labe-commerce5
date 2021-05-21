@@ -22,24 +22,33 @@ const CarrinhoProdutos = styled.div`
 
 `
 
-class Carrinho extends React.Component {
-    // pegarValorTotal = () => {
-    //     let ValorTotal = 0
-        
-        
-    // }
+export default class Carrinho extends React.Component {
+    pegarValorTotal = () => {
+        let valorTotal = 0
+
+        for (const products of this.props.produtosNoCarrinho) {
+            valorTotal += products.quantidade * products.preço
+        }
+        return valorTotal
+    }
+
     render() {
+        const produtos = this.props.produtosNoCarrinho
+        console.log(produtos)
         return (
             <ContainerCarrinho>
                 <h1>🛒 Carrinho:</h1>
                 <CarrinhoProdutos>
-                    <ItemCarrinho />
-                    <ItemCarrinho />
-                    <p>Valor Total: R$</p>
+                    {this.props.produtosNoCarrinho.map((produto) => {
+                        return <ItemCarrinho
+                            produtos={produto}
+                            onRemoverCarrinho={this.props.onRemoverCarrinho}
+                        />
+                    })}
+                    <p>Valor Total: R${this.pegarValorTotal()},00</p>
                 </CarrinhoProdutos>
             </ContainerCarrinho>
         )
     }
 }
 
-export default Carrinho

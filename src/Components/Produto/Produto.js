@@ -31,13 +31,11 @@ export default class Produto extends React.Component {
 
     onMudaLista = (event) => {
         this.setState({ ordena: event.target.value })
-        console.log(this.onMudaLista)
+        // console.log(this.onMudaLista)
     }
+
     render() {
         const listaOrdenada = this.getListaOrdenada()
-
-        const products = this.props.products
-
         // console.log(products)
         return <Produtos>
             <TopoProduto>
@@ -51,12 +49,12 @@ export default class Produto extends React.Component {
 
             </TopoProduto>
             <GridDeProdutos>
-                <ProdutoCard
-                    products={products}
-                />
-
-
-
+                {listaOrdenada.map((product) => {
+                    return <ProdutoCard
+                        products={product}
+                        onAdicionarCarrinho= {this.props.onAdicionarCarrinho}
+                    />
+                })}
             </GridDeProdutos>
         </Produtos>
             ;
